@@ -47,7 +47,7 @@
 
                 <x-text-input id="promo_code" class="block mt-1 w-full"
                               type="text"
-                              name="promo_code"/>
+                              name="promo_code" :value="old('promo_code')"/>
 
                 <x-input-error :messages="$errors->get('promo_code')" class="mt-2"/>
             </div>

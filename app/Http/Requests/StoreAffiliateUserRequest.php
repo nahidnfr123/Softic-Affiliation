@@ -28,7 +28,7 @@ class StoreAffiliateUserRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . AffiliateUser::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'promo_code' => ['nullable', 'string', 'unique:' . AffiliateUser::class],
+            'promo_code' => ['required', 'string', 'unique:' . AffiliateUser::class],
         ];
     }
 }

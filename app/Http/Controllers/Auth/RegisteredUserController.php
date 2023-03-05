@@ -36,6 +36,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'promo_code' => ['nullable', 'string', 'exists:' . AffiliateUser::class . ',promo_code'],
+            'dob' => ['date', 'string', 'exists:' . AffiliateUser::class . ',promo_code'],
         ]);
 
         $user = User::create([
