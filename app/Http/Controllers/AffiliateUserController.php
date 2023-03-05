@@ -13,7 +13,8 @@ class AffiliateUserController extends Controller
      */
     public function index()
     {
-        //
+        $affiliateUsers = AffiliateUser::all();
+        return view('affiliate.index', compact('affiliateUsers'));
     }
 
     /**
@@ -31,6 +32,7 @@ class AffiliateUserController extends Controller
     {
         $data = $request->validated();
         AffiliateUser::create($data);
+        return redirect()->route('affiliate.index');
     }
 
     /**

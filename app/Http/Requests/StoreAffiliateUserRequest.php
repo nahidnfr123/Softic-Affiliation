@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Models\AffiliateUser;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules;
 
 class StoreAffiliateUserRequest extends FormRequest
 {
@@ -11,7 +14,7 @@ class StoreAffiliateUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return (auth()->guard('admin')->check() || auth()->guard('affiliate')->check());
     }
 
     /**
@@ -22,7 +25,10 @@ class StoreAffiliateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . AffiliateUser::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'promo_code' => ['nullable', 'string', 'unique:' . AffiliateUser::class],
         ];
     }
 }
