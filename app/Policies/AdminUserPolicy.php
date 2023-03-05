@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Affiliate;
+use App\Models\AdminUser;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class AffiliatePolicy
+class AdminUserPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class AffiliatePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Affiliate $affiliate): bool
+    public function view(User $user, AdminUser $adminUser): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class AffiliatePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Affiliate $affiliate): bool
+    public function update(User $user, AdminUser $adminUser): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class AffiliatePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Affiliate $affiliate): bool
+    public function delete(User $user, AdminUser $adminUser): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class AffiliatePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Affiliate $affiliate): bool
+    public function restore(User $user, AdminUser $adminUser): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class AffiliatePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Affiliate $affiliate): bool
+    public function forceDelete(User $user, AdminUser $adminUser): bool
     {
         //
     }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAffiliateRequest;
-use App\Http\Requests\UpdateAffiliateRequest;
-use App\Models\Affiliate;
+use App\Http\Requests\StoreAdminUserRequest;
+use App\Http\Requests\UpdateAdminUserRequest;
+use App\Models\AdminUser;
 
-class AffiliateController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class AffiliateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAffiliateRequest $request)
+    public function store(StoreAdminUserRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class AffiliateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Affiliate $affiliate)
+    public function show(AdminUser $adminUser)
     {
         //
     }
@@ -43,7 +43,7 @@ class AffiliateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Affiliate $affiliate)
+    public function edit(AdminUser $adminUser)
     {
         //
     }
@@ -51,7 +51,7 @@ class AffiliateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAffiliateRequest $request, Affiliate $affiliate)
+    public function update(UpdateAdminUserRequest $request, AdminUser $adminUser)
     {
         //
     }
@@ -59,7 +59,7 @@ class AffiliateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Affiliate $affiliate)
+    public function destroy(AdminUser $adminUser)
     {
         //
     }

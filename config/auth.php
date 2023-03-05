@@ -74,11 +74,11 @@ return [
         ],
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
+            'model' => App\Models\AdminUser::class,
         ],
         'affiliates' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Affiliate::class,
+            'model' => App\Models\AffiliateUser::class,
         ],
 
         // 'users' => [
