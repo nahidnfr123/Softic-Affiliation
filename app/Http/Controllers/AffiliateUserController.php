@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAffiliateUserRequest;
 use App\Http\Requests\UpdateAffiliateUserRequest;
 use App\Models\AffiliateUser;
+use Illuminate\Support\Facades\Hash;
 
 class AffiliateUserController extends Controller
 {
@@ -31,6 +32,11 @@ class AffiliateUserController extends Controller
     public function store(StoreAffiliateUserRequest $request)
     {
         $data = $request->validated();
+        $data['password'] = Hash::make($data['password']);
+        if (auth()->guard('affiliate')->check()) {
+            $data['user_type'] = 'sub-affiliate';
+            $data['affiliate_user_id'] = auth()->guard('affiliate')->id();
+        }
         AffiliateUser::create($data);
         return redirect()->route('affiliate.index');
     }

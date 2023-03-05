@@ -43,6 +43,8 @@ class LoginRequest extends FormRequest
         $this->ensureIsNotRateLimited();
 
         $user_type = $this->user_type ?? 'web';
+//        dd($user_type);
+//        xicydubyz@mailinator.com
         if (!Auth::guard($user_type)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 

@@ -26,6 +26,7 @@
                         <tr class="bg-gray-100">
                             <th class="border px-4 py-2">Name</th>
                             <th class="border px-4 py-2">Email</th>
+                            <th class="border px-4 py-2">User Type</th>
                             <th class="border px-4 py-2">Promo Code</th>
                             <th class="border px-4 py-2">Action</th>
                         </tr>
@@ -35,6 +36,7 @@
                             <tr>
                                 <td class="border px-4 py-2">{{$affiliateUser->name}}</td>
                                 <td class="border px-4 py-2">{{$affiliateUser->email}}</td>
+                                <td class="border px-4 py-2">{{$affiliateUser->user_type}}</td>
                                 <td class="border px-4 py-2">{{$affiliateUser->promo_code}}</td>
                                 <td class="border px-4 py-2">
 
