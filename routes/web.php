@@ -31,6 +31,7 @@ Route::middleware(['auth:web,admin,affiliate',])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/notification', function () {
+        auth()->user()->unreadNotifications->markAsRead();
         return view('notification');
     })->name('notification');
 });
