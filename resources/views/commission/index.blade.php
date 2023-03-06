@@ -32,7 +32,7 @@
                                 <td class="border px-4 py-2">Tk. {{$commission->amount}}</td>
                                 <td class="border px-4 py-2">{{$commission->transaction->user->name}} (Tk. {{$commission->transaction->amount}})</td>
                                 <td class="border px-4 py-2">
-                                    {{$commission->throughUser->name}}
+{{--                                    {{$commission->throughUser->name}}--}}
                                 </td>
                                 <td class="border px-4 py-2">{{\Carbon\Carbon::parse($commission->created_at)}}</td>
                             </tr>
