@@ -22,7 +22,7 @@
                         <tr class="bg-gray-100">
                             <th class="border px-4 py-2">Commission Amount</th>
                             <th class="border px-4 py-2">User</th>
-                            @if(!auth()->user()->type == 'sub-affiliate')
+                            @if(!auth()->user()->user_type != 'sub-affiliate')
                                 <th class="border px-4 py-2">Sub-Affiliate</th>
                             @endif
                             <th class="border px-4 py-2">Date</th>
@@ -33,9 +33,11 @@
                             <tr>
                                 <td class="border px-4 py-2">Tk. {{$commission->amount}}</td>
                                 <td class="border px-4 py-2">{{$commission->transaction->user->name}} (Tk. {{$commission->transaction->amount}})</td>
-                                @if(!auth()->user()->type == 'sub-affiliate')
+                                @if(!auth()->user()->user_type != 'sub-affiliate')
                                     <td class="border px-4 py-2">
-                                        {{--                                    {{$commission->throughUser->name}}--}}
+                                        @if($commission->throughUser)
+                                            {{$commission->throughUser->name}} (Tk. {{$commission->amount * 2}})
+                                        @endif
                                     </td>
                                 @endif
                                 <td class="border px-4 py-2">{{\Carbon\Carbon::parse($commission->created_at)}}</td>

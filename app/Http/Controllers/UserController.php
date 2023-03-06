@@ -13,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::withCount('transactions')->get();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -38,7 +39,8 @@ class UserController extends Controller
      */
     public function show(user $user)
     {
-        //
+        $user->load('transactions', 'transactions.commissions', 'transactions.commissions.affiliateUser');
+        return view('users.show', compact('user'));
     }
 
     /**

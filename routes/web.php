@@ -41,6 +41,10 @@ Route::middleware(['auth:admin,affiliate',])->group(function () {
     Route::resource('/commission', CommissionController::class);
 });
 
+Route::middleware(['auth:admin,affiliate',])->group(function () {
+    Route::resource('/users', \App\Http\Controllers\UserController::class);
+});
+
 Route::middleware(['auth:web',])->group(function () {
     Route::resource('/transaction', TransactionController::class);
 });
