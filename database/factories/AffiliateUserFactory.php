@@ -23,7 +23,7 @@ class AffiliateUserFactory extends Factory
             'name' => fake()->name(),
             'email' => $email,
             'email_verified_at' => now(),
-            'password' => Hash::make($email), // password
+            'password' => Hash::make('password'), // password
             'remember_token' => Str::random(10),
             'promo_code' => Str::random(6),
         ];

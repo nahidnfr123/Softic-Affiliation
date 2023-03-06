@@ -27,8 +27,9 @@ class NotifyUser
         foreach ($event->commissions as $commission) {
             $data = [];
             $data['amount'] = $commission['amount'];
-            $data['notifiable'] = $commission['id'];
-            $data['type'] = Commission::class;
+//            $data['notifiable'] = $commission['id'];
+//            $data['notifiable'] = Commission::class;
+            $data['type'] = 'Commission Notification - Tk.' . $commission['amount'];
             AffiliateUser::findOrFail($commission->affiliate_user_id)->notify(new CommissionNotification($data));
         }
     }

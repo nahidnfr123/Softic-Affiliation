@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->float('amount');
+            $table->decimal('amount');
             $table->text('details');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();

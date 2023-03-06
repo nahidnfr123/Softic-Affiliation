@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('commissions', function (Blueprint $table) {
             $table->id();
-            $table->float('amount');
+            $table->decimal('amount');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('transaction_id')->constrained('transactions');
             $table->foreignId('affiliate_user_id')->constrained('affiliate_users');

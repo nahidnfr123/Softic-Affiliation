@@ -38,7 +38,6 @@ class CommissionNotification extends Notification
     {
         return [
             'type' => $this->data['type'],
-            'notifiable' => $this->data['notifiable'],
             'data' => 'A commission of Tk. ' . $this->data['amount'] . ' was added to your account.',
         ];
     }

@@ -18,22 +18,22 @@ class TransactionObserver
             $affiliateUser = $user->affiliateUser;
             $commissions = [];
             if ($affiliateUser->affiliate_user_id) {
-                $commissions []= Commission::create([
-                    'amount' => number_format(($transaction->amount / 100) * 20),
+                $commissions [] = Commission::create([
+                    'amount' => round(($transaction->amount / 100) * 20, 2),
                     'user_id' => $user->id,
                     'transaction_id' => $transaction->id,
                     'affiliate_user_id' => $affiliateUser->id,
                 ]);
-                $commissions []= Commission::create([
-                    'amount' => number_format(($transaction->amount / 100) * 10),
+                $commissions [] = Commission::create([
+                    'amount' => round(($transaction->amount / 100) * 10, 2),
                     'user_id' => $user->id,
                     'transaction_id' => $transaction->id,
                     'affiliate_user_id' => $affiliateUser->affiliate_user_id,
                     'through_user_id' => $affiliateUser->id, // Child Affiliate User ...
                 ]);
             } else {
-                $commissions []= Commission::create([
-                    'amount' => number_format(($transaction->amount / 100) * 30),
+                $commissions [] = Commission::create([
+                    'amount' => round(($transaction->amount / 100) * 30, 2),
                     'user_id' => $user->id,
                     'transaction_id' => $transaction->id,
                     'affiliate_user_id' => $affiliateUser->id,

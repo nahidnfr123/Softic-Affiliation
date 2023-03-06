@@ -21,7 +21,7 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <div>
-                    <a href="/notification" class="text-sm bg-pink-400 p-2 px-4 rounded-full">
+                    <a href="{{route('notification')}}" class="text-sm bg-pink-400 p-2 px-4 rounded-full">
                         Notification ({{Auth::user()->unreadNotifications()->count()}})
                     </a>
                 </div>
