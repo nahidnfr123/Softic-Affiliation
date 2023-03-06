@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'dob',
+        'affiliate_user_id',
     ];
 
     /**
@@ -42,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function transactions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function affiliateUser(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(AffiliateUser::class);
+    }
 }

@@ -10,11 +10,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('affiliate_users_users', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('affiliate_user_id')->constrained('affiliate_users');
-            $table->foreignId('user_id')->constrained('users');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('affiliate_user_id')->nullable()->constrained('affiliate_users');
         });
     }
 
@@ -23,6 +20,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('affiliate_users_users');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

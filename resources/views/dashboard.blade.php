@@ -33,6 +33,12 @@
                             <x-primary-button class="ml-3">Create Sub–Affiliate User</x-primary-button>
                         </a>
                     @endif
+
+                    @if(auth()->guard('web')->check())
+                        <a href="{{ route('transaction.create') }}">
+                            <x-primary-button class="ml-3">Create Transaction</x-primary-button>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->float('amount');
             $table->text('details');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

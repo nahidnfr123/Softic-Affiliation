@@ -11,7 +11,7 @@ class StoreTransactionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->guard('web')->check();
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreTransactionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'amount' => ['required', 'numeric', 'min:10', 'max:100000'],
+            'details' => ['required', 'string'],
         ];
     }
 }

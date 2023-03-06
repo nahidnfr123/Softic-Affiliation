@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-3xl mx-auto p-4 my-4 bg-white">
-        <h3 class="text-2xl">Create Affiliate User</h3>
+        <h3 class="text-2xl">Create {{auth()->guard('affiliate')->check() ? 'Sub-':''}}Affiliate User</h3>
         <hr class="my-2">
         <form method="POST" action="{{ route('affiliate.store') }}">
             @csrf
