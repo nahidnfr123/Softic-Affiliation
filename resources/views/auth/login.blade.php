@@ -26,15 +26,15 @@
         <div class="block mt-4">
             <div class="mr-2">Who are you?</div>
             <label class="inline-flex items-center gap-2">
-                <input type="radio" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="user_type" value="web">
+                <input type="radio" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="user_type" value="web" required>
                 <span class="mr-4 mt-0.5 text-sm text-gray-600">{{ __('User') }}</span>
             </label>
             <label class="inline-flex items-center gap-2">
-                <input type="radio" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="user_type" value="affiliate">
+                <input type="radio" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="user_type" value="affiliate" required>
                 <span class="mr-4 mt-0.5 text-sm text-gray-600">{{ __('Affiliate') }}</span>
             </label>
             <label class="inline-flex items-center gap-2">
-                <input type="radio" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="user_type" value="admin">
+                <input type="radio" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="user_type" value="admin" required>
                 <span class="mr-4 mt-0.5 text-sm text-gray-600">{{ __('Admin') }}</span>
             </label>
             <x-input-error :messages="$errors->get('user_type')" class="mt-2"/>
