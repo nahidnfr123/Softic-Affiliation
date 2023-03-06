@@ -29,8 +29,11 @@
                                     @if($transaction->commissions)
                                         @foreach($transaction->commissions as $commission)
                                             <div>Tk. {{$commission->amount}}</div>
-                                            <div>({{$commission->through_user_id ? 'Affiliate' : 'Sub-Affiliate'}})</div>
-{{--                                            <div>{{$commission->affiliate_user}}</div>--}}
+                                            <div>
+                                                <strong>
+                                                    {{$commission->affiliateUser->name}} ({{$commission->affiliateUser->user_type}})
+                                                </strong>
+                                            </div>
                                             <hr>
                                         @endforeach
                                     @endif
