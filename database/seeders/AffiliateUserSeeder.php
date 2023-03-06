@@ -12,6 +12,6 @@ class AffiliateUserSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+
     }
 }

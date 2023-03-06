@@ -29,12 +29,20 @@
                             <x-primary-button class="ml-3">Create Affiliate User</x-primary-button>
                         </a>
                     @elseif (auth()->guard('affiliate')->check())
+                        <a href="{{ route('commission.index') }}">
+                            <x-primary-button class="ml-3 bg-blue-400">View Commissions</x-primary-button>
+                        </a>
                         <a href="{{ route('affiliate.create') }}">
                             <x-primary-button class="ml-3">Create Sub–Affiliate User</x-primary-button>
                         </a>
                     @endif
 
+
+
                     @if(auth()->guard('web')->check())
+                        <a href="{{ route('transaction.index') }}">
+                            <x-primary-button class="ml-3">View Transaction</x-primary-button>
+                        </a>
                         <a href="{{ route('transaction.create') }}">
                             <x-primary-button class="ml-3">Create Transaction</x-primary-button>
                         </a>

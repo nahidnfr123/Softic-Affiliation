@@ -45,7 +45,7 @@ class AffiliateUser extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function referrer(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function affiliateUser(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(__CLASS__);
     }

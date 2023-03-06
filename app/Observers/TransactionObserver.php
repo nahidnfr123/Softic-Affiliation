@@ -2,6 +2,8 @@
 
 namespace App\Observers;
 
+use App\Events\TransactionEvent;
+use App\Models\Commission;
 use App\Models\transaction;
 
 class TransactionObserver
@@ -11,11 +13,33 @@ class TransactionObserver
      */
     public function created(transaction $transaction): void
     {
-        $request = request();
         $user = auth()->guard('web')->user();
-        if ($user && $user->referrer) {
-            $referrer = $user->referrer;
-            dd($referrer);
+        if ($user && $user->affiliateUser) {
+            $affiliateUser = $user->affiliateUser;
+            $commissions = [];
+            if ($affiliateUser->affiliate_user_id) {
+                $commissions []= Commission::create([
+                    'amount' => number_format(($transaction->amount / 100) * 20),
+                    'user_id' => $user->id,
+                    'transaction_id' => $transaction->id,
+                    'affiliate_user_id' => $affiliateUser->id,
+                ]);
+                $commissions []= Commission::create([
+                    'amount' => number_format(($transaction->amount / 100) * 10),
+                    'user_id' => $user->id,
+                    'transaction_id' => $transaction->id,
+                    'affiliate_user_id' => $affiliateUser->affiliate_user_id,
+                    'through_user_id' => $affiliateUser->id, // Child Affiliate User ...
+                ]);
+            } else {
+                $commissions []= Commission::create([
+                    'amount' => number_format(($transaction->amount / 100) * 30),
+                    'user_id' => $user->id,
+                    'transaction_id' => $transaction->id,
+                    'affiliate_user_id' => $affiliateUser->id,
+                ]);
+            }
+            TransactionEvent::dispatchIf(count($commissions), $commissions);
         }
 
     }

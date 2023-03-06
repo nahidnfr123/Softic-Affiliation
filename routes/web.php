@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AffiliateUserController;
+use App\Http\Controllers\CommissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::middleware(['auth:web,admin,affiliate',])->group(function () {
 
 Route::middleware(['auth:admin,affiliate',])->group(function () {
     Route::resource('/users/affiliate', AffiliateUserController::class);
+    Route::resource('/commission', CommissionController::class);
 });
 
 Route::middleware(['auth:web',])->group(function () {

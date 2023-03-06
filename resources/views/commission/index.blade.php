@@ -6,7 +6,7 @@
                     <div class="mb-4">
                         <div class="flex justify-between">
                             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                                {{ __('Transactions') }}
+                                {{ __('Commissions') }}
                             </h2>
 
                             @if(auth()->guard('web')->check())
@@ -20,17 +20,21 @@
                     <table class="table-fixed w-full">
                         <thead>
                         <tr class="bg-gray-100">
-                            <th class="border px-4 py-2">Amount</th>
-                            <th class="border px-4 py-2">Details</th>
+                            <th class="border px-4 py-2">Commission Amount</th>
+                            <th class="border px-4 py-2">User</th>
+                            <th class="border px-4 py-2">Sub-Affiliate</th>
                             <th class="border px-4 py-2">Date</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($transactions as $transaction)
+                        @foreach($commissions as $commission)
                             <tr>
-                                <td class="border px-4 py-2">Tk. {{$transaction->amount}}</td>
-                                <td class="border px-4 py-2">{{$transaction->details}}</td>
-                                <td class="border px-4 py-2">{{\Carbon\Carbon::parse($transaction->created_at)}}</td>
+                                <td class="border px-4 py-2">Tk. {{$commission->amount}}</td>
+                                <td class="border px-4 py-2">{{$commission->transaction->user->name}} (Tk. {{$commission->transaction->amount}})</td>
+                                <td class="border px-4 py-2">
+                                    {{$commission->throughUser->name}}
+                                </td>
+                                <td class="border px-4 py-2">{{\Carbon\Carbon::parse($commission->created_at)}}</td>
                             </tr>
                         @endforeach
                         </tbody>

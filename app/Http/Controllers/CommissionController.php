@@ -13,7 +13,11 @@ class CommissionController extends Controller
      */
     public function index()
     {
-        //
+        $userId = auth()->guard('affiliate')->id();
+        $commissions = Commission::where('affiliate_user_id', $userId)
+            ->with('transaction', 'transaction.user', 'throughUser')
+            ->get();
+        return view('commission.index', compact('commissions'));
     }
 
     /**

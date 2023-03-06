@@ -14,12 +14,13 @@ class TransactionEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public array $commissions;
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct($commissions)
     {
-        //
+        $this->commissions = $commissions;
     }
 
     /**
